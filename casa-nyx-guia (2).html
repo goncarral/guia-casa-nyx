@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guía Casa Nyx · Valladolid</title>
+<meta name="description" content="Guía rápida de Valladolid: cenotes, restaurantes, cafés, sitios de interés y tips de la casa." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23222'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial' font-size='54' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0e0f11;
+    --card:#16181d;
+    --muted:#9aa4b2;
+    --text:#e8edf3;
+    --accent:#3aa6ff;
+    --accent-2:#6bdba7;
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";}
+  header{
+    position:sticky; top:0; z-index:10;
+    background:linear-gradient(180deg, rgba(14,15,17,.95), rgba(14,15,17,.6) 55%, rgba(14,15,17,0));
+    backdrop-filter: blur(6px);
+    padding: 18px 20px 8px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .title{display:flex; align-items:center; gap:12px; font-weight:700;}
+  .title .logo{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:#222}
+  .title .logo span{font-weight:800}
+  .subtitle{color:var(--muted); font-size:14px; margin-top:4px}
+  main{padding: 16px; max-width: 1200px; margin: 0 auto;}
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap:16px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius: var(--radius);
+    overflow:hidden;
+    outline:2px solid transparent;
+    transition: transform .15s ease, outline-color .15s ease;
+  }
+  .card:focus-within, .card:focus, .card:hover{ transform: translateY(-2px); outline-color: rgba(58,166,255,.35); }
+  .card img{
+    width:100%; height:128px; object-fit:cover; display:block;
+    background:#0b0c0f;
+  }
+  .card .body{ padding:14px; }
+  .card h3{ margin:0 0 8px; font-size:18px; }
+  .card p{ margin:0; color:var(--muted); font-size:14px; line-height:1.35; }
+  .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+  .tag{font-size:12px; color:#0b1320; background:linear-gradient(180deg, #dff1ff, #bee4ff); padding:3px 8px; border-radius:999px}
+  .tag.alt{ background:linear-gradient(180deg, #ddffe7, #bff3d5) }
+  .actions{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#0f6ab4; color:white; text-decoration:none; border:none;
+    padding:10px 12px; border-radius:12px; font-weight:600; font-size:14px;
+  }
+  .btn.secondary{ background:#1f2530; color:#e7f1ff; border:1px solid rgba(255,255,255,.08) }
+  .section-title{margin:22px 4px 12px; display:flex; align-items:center; gap:10px}
+  .section-title h2{margin:0; font-size:20px}
+  .section-title .hint{color:var(--muted); font-size:13px}
+  .hero{
+    position:relative; border-radius: var(--radius); overflow:hidden; margin:12px 0 18px;
+    border:1px solid rgba(255,255,255,.08);
+    background: radial-gradient(1200px 400px at 0% 0%, rgba(58,166,255,.13), transparent 40%),
+                radial-gradient(1000px 400px at 100% 0%, rgba(107,219,167,.13), transparent 40%),
+                linear-gradient(180deg, #121419, #0e0f11 60%);
+  }
+  .hero-inner{ display:grid; grid-template-columns: 1.3fr .8fr; gap:14px; padding:16px; }
+  .hero h1{margin:0 0 10px; font-size:28px}
+  .hero p{margin:0; color:var(--muted)}
+  .hero .panel{
+    background: rgba(0,0,0,.2);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px; padding:12px;
+  }
+  .kv{display:flex; gap:12px; flex-wrap:wrap; font-size:14px; margin-top:8px}
+  .kv span{background:#171b22; border:1px solid rgba(255,255,255,.06); padding:8px 10px; border-radius:10px}
+  footer{color:var(--muted); font-size:12px; padding:30px 12px; text-align:center}
+  /* Remote/keyboard focusability */
+  a, button, .card{ outline-offset:2px }
+  .card a.btn{ outline: none }
+  /* TV-friendly large focus ring on buttons */
+  .btn:focus{ box-shadow: 0 0 0 3px rgba(58,166,255,.45) inset, 0 0 0 3px rgba(58,166,255,.35); }
+  /* Small screens single column hero */
+  @media (max-width: 880px){
+    .hero-inner{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <div class="logo"><span>NYX</span></div>
+    <div>
+      <div style="font-size:18px">Guía Casa Nyx · Valladolid</div>
+      <div class="subtitle">Bienvenido 👋 Explora cenotes, restaurantes y sitios clave. Optimizado para control remoto.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Bienvenida">
+    <div class="hero-inner">
+      <div>
+        <h1>¡Bienvenido a Casa Nyx, Valladolid! 🌴</h1>
+        <p>Hicimos esta guía para que aproveches al máximo tu estancia. Todo está a <strong>15–30 minutos</strong> en auto. Los botones abren <strong>Google Maps</strong> con la ubicación o <strong>WhatsApp</strong> si aplica.</p>
+        <div class="kv">
+          <span>Check-in: 3:00 PM</span>
+          <span>Check-out: 11:00 AM</span>
+          <span>Wi‑Fi: (pegar aquí)</span>
+          <span>Contacto anfitrión: (teléfono)</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div style="font-weight:700; margin-bottom:8px">Atajos rápidos</div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap:10px">
+          <a class="btn" tabindex="0" href="#cenotes">🕳️ Cenotes</a>
+          <a class="btn" tabindex="0" href="#comida">🍽️ Restaurantes</a>
+          <a class="btn" tabindex="0" href="#cafes">☕ Cafés & Bares</a>
+          <a class="btn" tabindex="0" href="#historia">🏛️ Sitios históricos</a>
+        </div>
+        <div style="margin-top:10px; font-size:12px; color:var(--muted)">Sugerencia: usa las flechas del control y “OK” para navegar.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title" id="cenotes">
+    <h2>🕳️ Cenotes</h2>
+    <span class="hint">Los más cercanos y fotogénicos.</span>
+  </div>
+  <div class="grid">
+    <article class="card" tabindex="0">
+      <img alt="Cenote Suytun" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Cenote_Suytun_Yucatan.jpg">
+      <div class="body">
+        <h3>Cenote Suytún</h3>
+        <p>La famosa plataforma circular con rayo de luz. Llegar temprano para foto sin gente.</p>
+        <div class="tags"><span class="tag">15–20 min</span><span class="tag alt">$</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cenote+Suytun" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="https://www.google.com/search?q=horarios+cenote+suytun" target="_blank" rel="noopener">Horarios</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Cenote X'Kekén" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Cenote_Xkeken.jpg">
+      <div class="body">
+        <h3>Cenote X'Kekén (Dzitnup)</h3>
+        <p>Caverna espectacular con estalactitas. Suele combinarse con Samulá.</p>
+        <div class="tags"><span class="tag">12–15 min</span><span class="tag alt">$$</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cenote+X%27Keken" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="https://www.google.com/search?q=cenote+xkeken+samula+horarios" target="_blank" rel="noopener">Horarios</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Cenote Ik Kil" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Ik_Kil_cenote.jpg">
+      <div class="body">
+        <h3>Ik Kil (cerca de Chichén)</h3>
+        <p>Abierto con lianas cayendo. Muy popular; ideal combinar con zona arqueológica.</p>
+        <div class="tags"><span class="tag">40–45 min</span><span class="tag alt">$$</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cenote+Ik+Kil" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="https://www.google.com/search?q=ik+kil+horarios+precios" target="_blank" rel="noopener">Horarios</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-title" id="comida">
+    <h2>🍽️ Restaurantes</h2>
+    <span class="hint">Cocina yucateca y spots confiables.</span>
+  </div>
+  <div class="grid">
+    <article class="card" tabindex="0">
+      <img alt="Restaurante típico" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>El Atrio del Mayab</h3>
+        <p>Tradicional, jardín agradable junto a la iglesia de San Gervasio.</p>
+        <div class="tags"><span class="tag">Centro</span><span class="tag alt">Yucateca</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=El+Atrio+del+Mayab+Valladolid" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="tel:+529858561204">Llamar</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Cocina contemporánea" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>Yerbabuena del Sisal</h3>
+        <p>Opciones saludables, vegetarianas y jugos; ideal desayuno/brunch.</p>
+        <div class="tags"><span class="tag">Sisal</span><span class="tag alt">Brunch</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Yerbabuena+del+Sisal+Valladolid" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="tel:+529851561644">Llamar</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Taquería" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>Conato</h3>
+        <p>Fusión mexicana en una casona con patios; buen coctel y ambiente.</p>
+        <div class="tags"><span class="tag">Centro</span><span class="tag alt">Fusión</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Conato+Valladolid" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="https://www.google.com/search?q=Conato+Valladolid+reservaciones" target="_blank" rel="noopener">Reservas</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-title" id="cafes">
+    <h2>☕ Cafés & Bares</h2>
+    <span class="hint">Para un espresso o un trago al atardecer.</span>
+  </div>
+  <div class="grid">
+    <article class="card" tabindex="0">
+      <img alt="Café" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>Caféina</h3>
+        <p>Especialidad, buen espresso y pastelería casera.</p>
+        <div class="tags"><span class="tag">Centro</span><span class="tag alt">Café</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cafeina+Valladolid" target="_blank" rel="noopener">Abrir en Maps</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Bar" src="https://images.unsplash.com/photo-1583258292688-99337f8d46c2?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>Mezcalería Don Diablito</h3>
+        <p>Coctelería con mezcales y buen ambiente nocturno.</p>
+        <div class="tags"><span class="tag">Noche</span><span class="tag alt">Bar</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mezcaler%C3%ADa+Don+Diablito+Valladolid" target="_blank" rel="noopener">Abrir en Maps</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-title" id="historia">
+    <h2>🏛️ Sitios históricos</h2>
+    <span class="hint">Imprescindibles cerca de Valladolid.</span>
+  </div>
+  <div class="grid">
+    <article class="card" tabindex="0">
+      <img alt="Convento de San Bernardino" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Convento_de_San_Bernardino_de_Siena%2C_Valladolid.jpg">
+      <div class="body">
+        <h3>Convento de San Bernardino</h3>
+        <p>Convento franciscano del s. XVI en el barrio de Sisal. Videomapping nocturno.</p>
+        <div class="tags"><span class="tag">10 min</span><span class="tag alt">Historia</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Convento+de+San+Bernardino+de+Siena+Valladolid" target="_blank" rel="noopener">Abrir en Maps</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Chichén Itzá" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Chichen_Itza_3.jpg">
+      <div class="body">
+        <h3>Chichén Itzá</h3>
+        <p>Una de las 7 maravillas del mundo moderno. Llegar al abrir para evitar filas.</p>
+        <div class="tags"><span class="tag">40–45 min</span><span class="tag alt">Patrimonio</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Chichen+Itza" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn secondary" href="https://www.google.com/search?q=chichen+itza+horarios+precios" target="_blank" rel="noopener">Horarios</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Ek Balam" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Ek_Balam.jpg">
+      <div class="body">
+        <h3>Ek Balam</h3>
+        <p>Zona arqueológica menos concurrida, con vistas increíbles desde la Acrópolis.</p>
+        <div class="tags"><span class="tag">30–35 min</span><span class="tag alt">Arqueología</span></div>
+        <div class="actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Ek+Balam" target="_blank" rel="noopener">Abrir en Maps</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-title" id="casa">
+    <h2>🏠 Tips de la casa</h2>
+    <span class="hint">Información práctica para tu estancia.</span>
+  </div>
+  <div class="grid">
+    <article class="card" tabindex="0">
+      <img alt="Casa" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>Wi‑Fi & Smart TV</h3>
+        <p>Nombre y password del Wi‑Fi, cómo usar la Smart TV, apps disponibles (Netflix/Prime/YouTube).</p>
+        <div class="actions">
+          <a class="btn secondary" href="#top">Editar texto en HTML</a>
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <img alt="Emergencias" src="https://images.unsplash.com/photo-1576765608441-8e7bf4915a89?q=80&w=1200&auto=format&fit=crop">
+      <div class="body">
+        <h3>Emergencias & Contactos</h3>
+        <p>Farmacias 24h, hospital, policía turística, taxi confiable, anfitrión.</p>
+        <div class="actions">
+          <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=hospital+Valladolid+Yucat%C3%A1n" target="_blank" rel="noopener">Hospital cercano</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    © <span id="y"></span> Casa Nyx · Valladolid · Hecho con ❤️ para huéspedes.<br/>
+    <span style="font-size:11px">Para editar: abre este archivo y sustituye textos, teléfonos y Wi‑Fi. También puedes alojarlo en un dominio propio.</span>
+  </footer>
+</main>
+
+<script>
+  // Update year
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // Make all cards focusable via remote arrows (basic)
+  document.querySelectorAll('.card').forEach(c => c.setAttribute('tabindex','0'));
+</script>
+</body>
+</html>
